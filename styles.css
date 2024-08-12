@@ -1,0 +1,111 @@
+/* Goofy borders around everything to help us see the layout. */
+* {
+	border: 2px solid cornflowerblue;
+	margin: 5px;
+	padding: 3px;
+}
+
+/* Base styles */
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* section {
+    border: 1px solid;
+    padding: 2px;
+    margin: 2px;
+} */
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+
+    /* The CSS declaration padding: 10px 0; is a shorthand for setting the padding on the top and bottom, as well as the left and right sides of an element. Specifically:
+
+        10px is the padding for the top and bottom of the element.
+        0 is the padding for the left and right sides of the element. */
+
+    padding: 10px 0;
+}
+
+/* Media query for screens over 768px */
+@media screen and (min-width: 768px) {
+
+    /* For smaller screens (below 768 pixels), the content is naturally centered due to the limited width of the screen. 
+    By setting text-align: center within the header, the text (or any inline content) aligns centrally without needing Flexbox.
+    Smaller screens don't typically require as much layout manipulation since the content area is narrow, 
+    so simpler CSS properties like text-align: center are often sufficient. */
+
+
+
+    /* On screens wider than 768 pixels, the 
+    content area is much broader, which can lead to issues where centered text 
+    using text-align: center might not look as balanced or might be harder to manage
+    if more elements are added to the header in the future.
+    By switching to Flexbox (display: flex), 
+    the header content is more reliably centered both horizontally and vertically, 
+    regardless of the width of the screen. Flexbox provides better control over the layout,
+    ensuring that elements within the header (like text, logos, or navigation links) 
+    are evenly distributed and aligned. */
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    main {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .intro, .content {
+        flex: 1;
+        margin: 0 20px;
+        max-width: 400px;
+    }
+
+    .intro {
+        text-align: left;
+    }
+
+    .content {
+        text-align: right;
+    }
+}
